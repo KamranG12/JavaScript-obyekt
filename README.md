@@ -1,1 +1,1 @@
-# JavaScript-obyekt
+# obyekt-prototype
