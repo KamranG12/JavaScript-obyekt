@@ -1,1 +1,0 @@
-var newDot= new Dot('main');

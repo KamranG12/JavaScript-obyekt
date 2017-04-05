@@ -1,0 +1,49 @@
+JavaScript obyekt-orianted mentiqli dildir.Yazdigimiz her hansi bir kodun proyektimizde yeniden lazim oldugu halda tekraren yazilmasinin qarshisini almaqchun onu obyekt halina chevirmek lazimdir ve lazim oldugu halda chagirib istifade etmek olar.Obyekte misal olaraq:
+
+  function Person(name, surname) {
+     this.name = name;
+     this.surname = surname;
+  }
+
+ var Person1=new Person('Kamran','Jabiyev');
+
+Birinci halda 'Person' obyekti yaradilib ve sonra 'Person1' olaraq parametrler verilmekle chagirilib.Gonderilmish parametrleri array kimi de geri chagirmaq olur:
+
+  function Person(name, surname) {
+     this.name = name;
+     this.surname = surname;
+     return [this.name,this.surname]
+  }
+
+ var Person1=new Person('Kamran','Jabiyev');
+
+Burada console.log-da Person1-i chagirsaq array olaraq [Kamran,Jabiyev] qaytaracaqdir.
+
+Yaradilmish obyektden miras alaraq ona mueyyen bir bashqa ozellikler qataraq proyektinde istifade etmeli olursan.Bu zaman 'prototype' vasitesi ile bu ishi heyata kechiririk.Misal uchun yuxarida yazdigimiz obyekte bir age parametri elave edek:
+
+  Person.prototype.setAge = function(yash) {
+     this.age = yash;
+  }
+
+  Person.prototype.getAge = function() {
+     return this.age;
+  }
+
+Daha sonra parametri gondersek:
+
+  Person1.setAge(27);
+
+Hazirda console.log(Person1) bize "Person {name: "Kamran", surname: "Jabiyev", age: 27}" qaytaracaqdir.
+Qeyd etmek lazimdir ki,Inheritance mentiqi ile obyekte yeni ozellikler qatmaq uchun, yeni obyekti prototype vasitesi ile yazdigimiz elavelerden sonra chagirmaq lazimdir:
+
+  Person.prototype.setAge = function(yash) {
+     this.age = yash;
+  }
+
+  Person.prototype.getAge = function() {
+     return this.age;
+  }
+
+  var Person1=new Person('Kamran','Jabiyev');
+  Person1.setAge(27);
+
